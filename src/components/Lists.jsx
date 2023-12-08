@@ -1,27 +1,17 @@
-// import AtfalDatabase from '../Data/AtfalDatabase';
 import AtfalDataContext from '../Data/AtfalData'
-
+import { CSVLink } from 'react-csv'
+import * as FaIcons from 'react-icons/fa'
 import { useMemo, useState, useEffect, useContext } from 'react';
-import { MaterialReactTable, useMaterialReactTable } from 'material-react-table';
+import { MaterialReactTable, useMaterialReactTable } from 'material-react-table'
 
-//data must be stable reference (useState, useMemo, useQuery, defined outside of component, etc.)
-// const data = AtfalDatabase
-// console.log(atfalDatas)
-// const data = [
-//   {
-//     name: 'John',
-//     age: 30,
-//   },
-//   {
-//     name: 'Sara',
-//     age: 25,
-//   },
-// ]
+
+
 
 export default function Lists() {
   const {atfalFeedback} = useContext(AtfalDataContext)
   const data = atfalFeedback
 
+ 
   const columns = useMemo(
     () => [
       {
@@ -54,12 +44,6 @@ export default function Lists() {
         muiTableHeadCellProps: { sx: { color: 'green' } }, //optional custom props
         Cell: ({ cell }) => <span>{cell.getValue()}</span>, //optional custom cell render
       },
-      // {
-      //   accessorFn: (row) => row.age, //alternate way
-      //   id: 'age', //id required if you use accessorFn instead of accessorKey
-      //   header: 'Age',
-      //   Header: () => <i>Age</i>, //optional custom header render
-      // },
     ],
     [],
   );
@@ -70,6 +54,8 @@ export default function Lists() {
   useEffect(() => {
     //do something when the row selection changes
   }, [rowSelection]);
+
+
 
   const table = useMaterialReactTable({
     columns,
@@ -82,6 +68,7 @@ export default function Lists() {
     onRowSelectionChange: setRowSelection, //hoist internal state to your own state (optional)
     state: { rowSelection }, //manage your own state, pass it back to the table (optional)
     // exportButton: true,
+    
   });
 
   const someEventHandler = () => {
@@ -89,7 +76,12 @@ export default function Lists() {
     console.log(table.getState().sorting);
   }
 
+ 
+
   return (
-    <MaterialReactTable table={table} /> //other more lightweight MRT sub components also available
+    <>      
+      <MaterialReactTable table={table} />
+      <CSVLink filename='myfile.csv' columns={columns} data={data} ><button className='download'>Download</button></CSVLink>
+  </>
   );
 }

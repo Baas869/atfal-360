@@ -9,6 +9,8 @@ import AtfalCharts from './components/AtfalCharts';
 import AtfalTotalTable from './components/AtfalTotalTable';
 import AtfalLists from './components/AtfalLists';
 import Lists from './components/Lists';
+import Footer from './components/Footer'
+// import Testtable from './components/Testtable'
 
 function App() {
   return (
@@ -22,7 +24,7 @@ function App() {
               <>
                 <AtfalStats />
                 <AtfalCharts />
-                <div className='list-tab'>
+                <div className='list-tab margin-top'>
                   <AtfalTotalTable />
                   <AtfalLists />
                 </div> 
@@ -30,7 +32,8 @@ function App() {
             } />
             <Route path='/statistic' element={<Lists />} />
           </Routes>
-        </div>  
+        </div> 
+        <Footer/> 
       </Router>
     </AtfalFeedbackProvider>     
   )

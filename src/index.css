@@ -235,6 +235,7 @@ ul {
 .atfalChart-tab{
   display: grid;
   gap: 1rem;
+  margin-top: 3rem;
 }
 .atfal-charts{
     background-color: #fff;
@@ -245,6 +246,9 @@ ul {
     width: 99%;
     margin: auto;
     min-height: 20rem;
+}
+.list-tab{
+  margin-top: 3rem;
 }
 .table{
   border-collapse: collapse;
@@ -343,7 +347,7 @@ ul {
 }
 .nav-text{
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   padding: 8px 0px 8px 16px;
   list-style: none;
@@ -373,7 +377,7 @@ ul {
   width: 100%;
   height: 80px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
 .m-nav{
@@ -381,7 +385,7 @@ ul {
 }
 .desktop-nav{
   display: flex; 
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 .navigation{
@@ -389,7 +393,7 @@ ul {
 }
 .navigation a{
   text-decoration: none;
-  color: #f5f5f5;
+  color: #e48484;
   font-size: 18px;
   /* width: 95%; */
   height: 100%;
@@ -401,6 +405,18 @@ ul {
 .d-nav{
   margin-left: 5px;
 }
+.download{
+  padding: 5px;
+
+}
+.footer{
+  width: 100%;
+  text-align: center;
+  padding: 0.8rem 1rem;
+  background: green;
+  color: #fff;
+}
+
 @media(min-width: 40rem){
   .atfal-stats-section{
     grid-template-columns: repeat(2, 1fr);
@@ -460,7 +476,7 @@ ul {
     display: none;
   }
   .navbar{
-    margin-left: 15rem;
+    margin-left: 16rem;
   }
   .container{
     margin-left: 15rem;

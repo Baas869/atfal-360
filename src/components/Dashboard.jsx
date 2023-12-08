@@ -11,33 +11,9 @@ function Dashboard() {
 
   const showSidebar = () => setSidebar(!sidebar)
   
-    // useEffect(() =>{
-    //     if(dashboardTab === true){
-    //       const dashNav = document.querySelector('.dashboard')
-    //       dashNav.setAttribute('open', 'open' )
-    //       dashNav.style.transform= 'transformX(30rem)'
-    //       console.log(dashNav)
-    //     }
-    // }, [openDashTab])
+    
   return (
-    // <div className={open ? 'card dashboard open' : 'card dashboard'}>
-    //     <button className='close-menu'>
-    //         <FaTimes />
-    //     </button>
-    //   <div>
-    //     <h1>Atfal Statistics</h1>
-    //   </div>
-    //   <div className='navbar-links'>
-    //     <NavLink to='/' activeClassName='active' className='navbar-item'>
-    //         <FaDesktop className='dash-i'/>
-    //         <span className='mg-left'>Dashboard</span>
-    //     </NavLink>
-    //     <NavLink to='/statistic' activeClassName='active' className='navbar-item'>
-    //         <FaDesktop className='dash-i'/>
-    //         <span className='mg-left'>Statistics</span>
-    //     </NavLink>
-    //   </div>
-    // </div>
+    
     <>
     <IconContext.Provider value={{color: '#fff'}}>
       <div className="navbar">
