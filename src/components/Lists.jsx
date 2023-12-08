@@ -1,6 +1,6 @@
 import AtfalDataContext from '../Data/AtfalData'
 import { CSVLink } from 'react-csv'
-import { useMemo, useState, useEffect, useContext } from 'react';
+import { useMemo, useState, useContext } from 'react';
 import { MaterialReactTable, useMaterialReactTable } from 'material-react-table'
 
 
@@ -70,17 +70,17 @@ export default function Lists() {
     
   });
 
-  const someEventHandler = () => {
-    //read the table state during an event from the table instance
-    console.log(table.getState().sorting);
-  }
+  // const someEventHandler = () => {
+  //   //read the table state during an event from the table instance
+  //   console.log(table.getState().sorting);
+  // }
 
  
 
   return (
     <>      
       <MaterialReactTable table={table} />
-      <CSVLink filename='myfile.csv' columns={columns} data={data} ><button className='download'>Download</button></CSVLink>
+      <CSVLink filename='atfal.csv' columns={columns} data={data} ><button className='download'>Download</button></CSVLink>
   </>
   );
 }

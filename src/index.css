@@ -407,6 +407,7 @@ ul {
 }
 .download{
   padding: 5px;
+  cursor: pointer;
 
 }
 .footer{
