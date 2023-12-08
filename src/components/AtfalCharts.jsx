@@ -1,8 +1,5 @@
-import React, { useState, useContext } from 'react'
-import Card from './Card'
-import Chart from "react-apexcharts"
+import React, { useContext } from 'react'
 import AtfalDataContext from '../Data/AtfalData'
-import  {Chart as ChartJS, defaults} from 'chart.js/auto'
 import{ Bar, Doughnut} from 'react-chartjs-2'
 
 defaults.maintainAspectRatio = false;
@@ -15,8 +12,7 @@ defaults.plugins.title.color = '#008000';
 
 
 function AtfalCharts() {
-    const {atfalFeedback,
-      preschool,
+    const {preschool,
       earlychild, 
       preteen, 
       teen,

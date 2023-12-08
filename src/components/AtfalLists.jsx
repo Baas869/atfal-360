@@ -1,19 +1,10 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import AtfalDataContext from '../Data/AtfalData'
 import AtfalItems from './AtfalItems'
 import { Link } from 'react-router-dom'
 
 function AtfalLists() {
-    const {atfalFeedback,
-        preschool,
-        earlychild, 
-        preteen, 
-        teen,
-        preschoolPercent,
-        earlychildPercent,
-        preteenPercent,
-        teenPercent
-       } = useContext(AtfalDataContext)
+    const {atfalFeedback} = useContext(AtfalDataContext)
   return (
     <div className='list' style={{overflowX: 'auto'}}>
         <h4>List of Tifle</h4>    

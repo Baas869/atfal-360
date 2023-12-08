@@ -1,6 +1,5 @@
 import AtfalDataContext from '../Data/AtfalData'
 import { CSVLink } from 'react-csv'
-import * as FaIcons from 'react-icons/fa'
 import { useMemo, useState, useEffect, useContext } from 'react';
 import { MaterialReactTable, useMaterialReactTable } from 'material-react-table'
 
@@ -51,9 +50,9 @@ export default function Lists() {
   //optionally, you can manage any/all of the table state yourself
   const [rowSelection, setRowSelection] = useState({});
 
-  useEffect(() => {
-    //do something when the row selection changes
-  }, [rowSelection]);
+  // useEffect(() => {
+  //   //do something when the row selection changes
+  // }, [rowSelection]);
 
 
 

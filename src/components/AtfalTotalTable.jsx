@@ -1,10 +1,8 @@
-import Card from "./Card"
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import AtfalDataContext from '../Data/AtfalData'
 
 function AtfalTotalTable() {
-    const {atfalFeedback,
-        preschool,
+    const {preschool,
         earlychild, 
         preteen, 
         teen,
