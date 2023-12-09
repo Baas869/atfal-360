@@ -17,7 +17,7 @@ function Dashboard() {
     <>
     <IconContext.Provider value={{color: '#fff'}}>
       <div className="navbar">
-          <Link to='/' className='menu-bars'>
+          <Link  className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar}/>
           </Link>
           <div>
