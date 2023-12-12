@@ -12,10 +12,9 @@ function AtfalTotalTable() {
         teenPercent
        } = useContext(AtfalDataContext)
   return (
-    // <div style={{background: '#fff', borderRadius: '15px', 
-    // boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.4)', 
-    // padding: '1rem' }}>
-         <table className="table">
+    
+    <div style={{overflowX: 'auto'}}>
+        <table className="table">
             <thead>
                 <tr >
                     <th>Categories</th>
@@ -51,8 +50,7 @@ function AtfalTotalTable() {
                 </tr>
             </tbody>
         </table>
-
-    // </div>
+    </div>
   )
 }
 

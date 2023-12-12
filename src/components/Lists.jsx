@@ -14,31 +14,31 @@ export default function Lists() {
   const columns = useMemo(
     () => [
       {
-        accessorKey: 'full_name', //simple recommended way to define a column
+        accessorKey: 'FullName', //simple recommended way to define a column
         header: 'Name',
         muiTableHeadCellProps: { sx: { color: 'green' } }, //optional custom props
         Cell: ({ cell }) => <span>{cell.getValue()}</span>, //optional custom cell render
       },
       {
-        accessorKey: 'region', //simple recommended way to define a column
+        accessorKey: 'Region', //simple recommended way to define a column
         header: 'Region',
         muiTableHeadCellProps: { sx: { color: 'green' } }, //optional custom props
         Cell: ({ cell }) => <span>{cell.getValue()}</span>, //optional custom cell render
       },
       {
-        accessorKey: 'state', //simple recommended way to define a column
+        accessorKey: 'State', //simple recommended way to define a column
         header: 'State',
         muiTableHeadCellProps: { sx: { color: 'green' } }, //optional custom props
         Cell: ({ cell }) => <span>{cell.getValue()}</span>, //optional custom cell render
       },
       {
-        accessorKey: 'dila', //simple recommended way to define a column
+        accessorKey: 'Dila', //simple recommended way to define a column
         header: 'Dila',
         muiTableHeadCellProps: { sx: { color: 'green' } }, //optional custom props
         Cell: ({ cell }) => <span>{cell.getValue()}</span>, //optional custom cell render
       },
       {
-        accessorKey: 'muqami', //simple recommended way to define a column
+        accessorKey: 'Muqam', //simple recommended way to define a column
         header: 'Muqami',
         muiTableHeadCellProps: { sx: { color: 'green' } }, //optional custom props
         Cell: ({ cell }) => <span>{cell.getValue()}</span>, //optional custom cell render

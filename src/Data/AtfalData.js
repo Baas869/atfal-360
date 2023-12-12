@@ -1,46 +1,128 @@
-import { createContext, useState } from "react"
-import AtfalDatabase from '../Data/AtfalDatabase'
+import { createContext, useEffect, useState } from "react"
+// import AtfalDatabase from '../Data/AtfalDatabase'
+import Axios, { formToJSON } from 'axios'
+import { useQuery } from '@tanstack/react-query'
+
 
 const AtfalDataContext = createContext()
 
 export const AtfalFeedbackProvider = ({children}) =>{
-    const data = AtfalDatabase
-
-    const [atfalFeedback, setAtfalFeedback] = useState(data)
     
-    const [atfalAges, setAtfalPreschool] = useState(atfalFeedback.map((atfal) => (atfal.age)))
-    const [preschool, setPreschool] = useState(atfalAges.filter((pretifle) => pretifle <= 5))
-    const [earlychild, setEarlychild] = useState(atfalAges.filter((pretifle) => pretifle >= 6 && pretifle <= 10))
-    const [preteen, setPreteen] = useState(atfalAges.filter((pretifle) => pretifle >= 11 && pretifle <= 13))
-    const [teen, setTeen] = useState(atfalAges.filter((pretifle) => pretifle >= 14 && pretifle <= 17))
+    // const data = AtfalDatabase
 
-    const [dashboardTab, setDashboardTab] = useState(false)
+    // const [isLoading, setIsloading] = useState(true)
 
-
-    const [preschoolPercent, setPreschoolPercent] = useState(((preschool.length * 100) / atfalAges.length).toFixed(1).replace(/[.,]0$/, ''))
-    const [earlychildPercent, setEarlychildPercent] = useState(((earlychild.length * 100) / atfalAges.length).toFixed(1).replace(/[.,]0$/, ''))
-    const [preteenPercent, setPreteenPercent] = useState(((preteen.length * 100) / atfalAges.length).toFixed(1).replace(/[.,]0$/, ''))
-    const [teenPercent, setTeenPercent] = useState(((teen.length * 100) / atfalAges.length).toFixed(1).replace(/[.,]0$/, ''))
+    const [atfalFeedback, setAtfalFeedback] = useState([])
     
-    const openDashTab = () =>{
-        setDashboardTab(!dashboardTab)
+    const [atfalAges, setAtfalPreschool] = useState([])
+    const [preschool, setPreschool] = useState()
+    const [earlychild, setEarlychild] = useState()
+    const [preteen, setPreteen] = useState()
+    const [teen, setTeen] = useState()
+
+    const [forpercentage, setForpercentage] = useState(false)
+
+
+    const [preschoolPercent, setPreschoolPercent] = useState()
+    const [earlychildPercent, setEarlychildPercent] = useState()
+    const [preteenPercent, setPreteenPercent] = useState()
+    const [teenPercent, setTeenPercent] = useState()
+    
+   
+   
+    // useEffect(() =>{
+        
+        // addAtfalfeedback()
+
+        // Axios.get('https://atfal-360.onrender.com/v1/atfals').then((res) => setAtfalFeedback(res.data))
+        
+        // fetch('https://atfal-360.onrender.com/v1/atfals').then((res) => res.json()).then((data) => setAtfalFeedback(data)).then(() =>{
+        //     console.log(atfalFeedback.Age)
+        
+        // setPreschool(atfalAges.filter((pretifle) => pretifle <= 5))
+        // setEarlychild(atfalAges.filter((pretifle) => pretifle >= 6 && pretifle <= 10))
+        // setPreteen(atfalAges.filter((pretifle) => pretifle >= 11 && pretifle <= 13))
+        // setTeen(atfalAges.filter((pretifle) => pretifle >= 14 && pretifle <= 17))
+
+        // setPreschoolPercent(((preschool.length * 100) / atfalAges.length).toFixed(1).replace(/[.,]0$/, ''))
+        // setEarlychildPercent(((earlychild.length * 100) / atfalAges.length).toFixed(1).replace(/[.,]0$/, ''))
+        // setPreteenPercent(((preteen.length * 100) / atfalAges.length).toFixed(1).replace(/[.,]0$/, ''))
+        // setTeenPercent(((teen.length * 100) / atfalAges.length).toFixed(1).replace(/[.,]0$/, ''))
+    // }, [])
+    
+    
+    
+
+    // const openDashTab = () =>{
+    //     setDashboardTab(!dashboardTab)
+    // }
+
+    useEffect(() =>{
+        const fetchDatas = async () =>{
+            const result = await fetch('https://atfal-360.onrender.com/v1/atfals')
+            result.json().then(json =>{
+                console.log(json)
+            })
+        }
+   }, [])
+    const { data, atfalDatas, isLoading, refetch } = useQuery({
+        queryFn: () => fetchData(),
+        queryKey: ["atfalDatas"],
+      })
+  
+    const fetchData = async () =>{
+      const items = await fetch('https://atfal-360.onrender.com/v1/atfals')
+    // const items = await Axios.get('https://atfal-360.onrender.com/v1/atfals')
+
+      const atfalItems = await items.json().then(json =>{
+        setAtfalPreschool(json.map((tifle) => tifle.Age))
+        setAtfalFeedback(json)
+        return json
+      })
+        // setAtfalFeedback(atfalItems)
+      return atfalItems
     }
 
-    
-    
+    const load = () =>{
+        setForpercentage(true)
+    }
+    // refetch()
+    useEffect(() =>{
 
+        
+        setPreschool(atfalAges?.filter((pretifle) => pretifle <= 5))
+        setEarlychild(atfalAges?.filter((pretifle) => pretifle >= 6 && pretifle <= 10))
+        setPreteen(atfalAges?.filter((pretifle) => pretifle >= 11 && pretifle <= 13))
+        setTeen(atfalAges?.filter((pretifle) => pretifle >= 14 && pretifle <= 17))
+        
+        load()
+
+        
+    }, [data])
+    useEffect(() =>{
+            
+        setPreschoolPercent(+((preschool?.length * 100) / atfalAges.length).toFixed(1).replace(/[.,]0$/, ''))
+        setEarlychildPercent(+((earlychild?.length * 100) / atfalAges.length).toFixed(1).replace(/[.,]0$/, ''))
+        setPreteenPercent(+((preteen?.length * 100) / atfalAges.length).toFixed(1).replace(/[.,]0$/, ''))
+        setTeenPercent(+((teen?.length * 100) / atfalAges.length).toFixed(1).replace(/[.,]0$/, ''))
+    }, [load])
+   
+    if(isLoading){
+        return <p>Loading...</p>
+    }
+   
     return <AtfalDataContext.Provider value={{
         atfalFeedback, 
+        atfalAges,
         preschool,
         earlychild,
         preteen,
         teen,
-        dashboardTab,
         preschoolPercent,
         earlychildPercent,
         preteenPercent,
         teenPercent,
-        openDashTab
+        isLoading
     }}>
         {children}
     </AtfalDataContext.Provider>

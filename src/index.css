@@ -18,15 +18,17 @@ body {
 .container{
   padding: 1rem 1rem;
   overflow: hidden;
+  min-height: calc(100vh - 10rem);
+  max-width: 73rem
 }
 .header{
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
-  bottom: 50%;
+  /* bottom: 50%; */
   background-color: green;
-  height: 50vh;
+  height: 19rem;
   z-index: -1;
 }
 .header-container{

@@ -3,13 +3,14 @@ import React from 'react'
 function AtfalItems({tifle, ind}) {
     return (
     <>
-        <tr>
-            <td style={{textTransform: 'uppercase'}}>{tifle.full_name}</td>
-            <td style={{textTransform: 'capitalize'}}>{tifle.region}</td>
-            <td style={{textTransform: 'capitalize'}}>{tifle.state}</td>
-            <td style={{textTransform: 'capitalize'}}>{tifle.dila}</td>
-            <td style={{textTransform: 'capitalize'}}>{tifle.muqami}</td>
+            <tr>
+                <td style={{textTransform: 'uppercase'}}>{tifle.FullName}</td>
+                <td style={{textTransform: 'capitalize'}}>{tifle.Region}</td>
+                <td style={{textTransform: 'capitalize'}}>{tifle.State}</td>
+                <td style={{textTransform: 'capitalize'}}>{tifle.Dila}</td>
+                <td style={{textTransform: 'capitalize'}}>{tifle.Muqam}</td>
         </tr>
+        
     </>
   )
 }
