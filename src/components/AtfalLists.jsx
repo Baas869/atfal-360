@@ -19,8 +19,8 @@ function AtfalLists() {
                 </tr>
             </thead>
             <tbody id="book-list">
-            {atfalFeedback.slice(0,10).map((tifle, ind) => (
-                <AtfalItems key={tifle._id} tifle={tifle} index={ind}/>))}
+            {atfalFeedback.slice(0,10).map((tifle) => (
+                <AtfalItems key={tifle._id} tifle={tifle}/>))}
             </tbody>
         </table>
         <button style={{padding: '5px', fontSize: '1rem', cursor: 'pointer'}}>

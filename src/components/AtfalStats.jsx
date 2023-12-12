@@ -1,8 +1,6 @@
 import React, { useContext } from 'react'
 import Card from './Card'
 import AtfalDataContext from '../Data/AtfalData'
-// import Axios from 'axios'
-// import { useQuery } from "@tanstack/react-query" 
 
 
 

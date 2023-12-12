@@ -1,6 +1,6 @@
 import React from 'react'
 
-function AtfalItems({tifle, ind}) {
+function AtfalItems({tifle}) {
     return (
     <>
             <tr>

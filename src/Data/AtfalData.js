@@ -1,6 +1,4 @@
 import { createContext, useEffect, useState } from "react"
-// import AtfalDatabase from '../Data/AtfalDatabase'
-import Axios, { formToJSON } from 'axios'
 import { useQuery } from '@tanstack/react-query'
 
 
@@ -8,9 +6,6 @@ const AtfalDataContext = createContext()
 
 export const AtfalFeedbackProvider = ({children}) =>{
     
-    // const data = AtfalDatabase
-
-    // const [isLoading, setIsloading] = useState(true)
 
     const [atfalFeedback, setAtfalFeedback] = useState([])
     
@@ -30,33 +25,7 @@ export const AtfalFeedbackProvider = ({children}) =>{
     
    
    
-    // useEffect(() =>{
-        
-        // addAtfalfeedback()
-
-        // Axios.get('https://atfal-360.onrender.com/v1/atfals').then((res) => setAtfalFeedback(res.data))
-        
-        // fetch('https://atfal-360.onrender.com/v1/atfals').then((res) => res.json()).then((data) => setAtfalFeedback(data)).then(() =>{
-        //     console.log(atfalFeedback.Age)
-        
-        // setPreschool(atfalAges.filter((pretifle) => pretifle <= 5))
-        // setEarlychild(atfalAges.filter((pretifle) => pretifle >= 6 && pretifle <= 10))
-        // setPreteen(atfalAges.filter((pretifle) => pretifle >= 11 && pretifle <= 13))
-        // setTeen(atfalAges.filter((pretifle) => pretifle >= 14 && pretifle <= 17))
-
-        // setPreschoolPercent(((preschool.length * 100) / atfalAges.length).toFixed(1).replace(/[.,]0$/, ''))
-        // setEarlychildPercent(((earlychild.length * 100) / atfalAges.length).toFixed(1).replace(/[.,]0$/, ''))
-        // setPreteenPercent(((preteen.length * 100) / atfalAges.length).toFixed(1).replace(/[.,]0$/, ''))
-        // setTeenPercent(((teen.length * 100) / atfalAges.length).toFixed(1).replace(/[.,]0$/, ''))
-    // }, [])
     
-    
-    
-
-    // const openDashTab = () =>{
-    //     setDashboardTab(!dashboardTab)
-    // }
-
     useEffect(() =>{
         const fetchDatas = async () =>{
             const result = await fetch('https://atfal-360.onrender.com/v1/atfals')
@@ -72,14 +41,12 @@ export const AtfalFeedbackProvider = ({children}) =>{
   
     const fetchData = async () =>{
       const items = await fetch('https://atfal-360.onrender.com/v1/atfals')
-    // const items = await Axios.get('https://atfal-360.onrender.com/v1/atfals')
 
       const atfalItems = await items.json().then(json =>{
         setAtfalPreschool(json.map((tifle) => tifle.Age))
         setAtfalFeedback(json)
         return json
       })
-        // setAtfalFeedback(atfalItems)
       return atfalItems
     }
 
